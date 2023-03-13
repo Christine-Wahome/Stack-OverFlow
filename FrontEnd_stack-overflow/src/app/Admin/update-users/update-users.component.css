@@ -1,0 +1,71 @@
+
+
+.user-update-form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    margin-left: 200px;
+    height: 100%;
+}
+
+.user-update-form p{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-update-form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-update-form form .form-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.user-update-form form .form-group label{
+    margin-bottom: 5px;
+}
+
+.user-update-form form .form-group input{
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.user-update-form form .form-group input:focus{
+    outline: none;
+    border: 1px solid #000;
+}
+
+label,h2{
+    font-weight: bold;
+    color: blue;
+}
+button{
+    border-radius: 50px;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+.user-update-form > .form-group > .ng-invalid.ng-touched{
+    border: 1px solid red;
+}

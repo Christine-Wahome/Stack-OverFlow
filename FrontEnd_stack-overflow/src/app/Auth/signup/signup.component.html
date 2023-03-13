@@ -1,0 +1,113 @@
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <div class="content">
+                <h1>
+                    Join the Stack Overflow community
+                </h1>
+                <div class="content1">
+                    <i class="fa fa-commenting" aria-hidden="true"></i>
+                    <p>Get unstuck, Ask a question</p>
+                </div>
+                <div class="content1">
+                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
+                    <p>Unlock new privileges like voting and commenting</p>
+                </div>
+                <div class="content1">
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    <p>Save your favourite tags,,filters and jobs</p>
+                </div>
+                <div class="content1">
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                    <p>Unlock new privileges like voting and commenting</p>
+                </div>
+                
+            </div>
+
+        </div>
+        <div class="col-6">
+            <div class="container">
+                <div class="row">
+                  <div id="form-box" class="col-md-6 offset-md-3">
+                    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+                      <div class="form-group">
+                        <label for="firstName">Display Name</label>
+                        <input formControlName="Name" [ngClass]="{'is-invalid':submitted && registerForm.controls.Name.errors}" type="text" class="form-control">
+                        <div *ngIf=" !registerForm.get('Name')?.valid && registerForm.get('Name')?.touched
+                        " class="text-danger">
+                            <div *ngIf="registerForm.get('Name')!.errors!['required']">
+                              Display Name is required
+                            </div>
+                            <div *ngIf="registerForm.get('Name')!.errors!['minlength']">
+                                Display Name Should be atleast 4 characters
+                            </div>  
+                          </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input formControlName="Email" type="Email" class="form-control">
+                        <div *ngIf=" !registerForm.get('Email')?.valid && registerForm.get('Email')?.touched
+                        " class="text-danger">
+                            <div *ngIf="registerForm.get('Email')!.errors!['required']">
+                              Email is required
+                            </div>
+                            <div *ngIf="registerForm.get('Email')!.errors!['Email']">
+                              Enter Valid Email
+                            </div>  
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input formControlName="Password" type="Password" class="form-control">
+                        <div *ngIf=" !registerForm.get('Password')?.valid && registerForm.get('Password')?.touched
+                        " class="text-danger">
+                            <div *ngIf="registerForm.get('Password')!.errors!['required']">
+                              Password is required
+                            </div>
+                            <div *ngIf="registerForm.get('Password')!.errors!['pattern']">
+                              Enter Valid Password
+                            </div>  
+                          </div>
+                      </div>
+                      <!-- <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input formControlName="conPassword" type="password" class="form-control">
+                        <div *ngIf=" !registerForm.get('conPassword')?.valid && registerForm.get('conPassword')?.touched
+                        " class="text-danger">
+                            <div *ngIf="registerForm.get('conPassword')!.errors!['required']">
+                              Confirm password is required
+                            </div>
+                            <div *ngIf="registerForm.get('conPassword')!.errors!['pattern']">
+                              Enter Valid conPassword
+                            </div>  
+                            <div *ngIf="registerForm.get('conPassword')!.errors!['passwordUnmatch']">
+                              Passwords dont match
+                            </div>  
+                          </div>
+                      </div> -->
+                      <div class="form-group">
+                        <!-- [disabled]="registerForm.invalid" -->
+                        <button  class="btn btn-primary" type="submit">Register</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+

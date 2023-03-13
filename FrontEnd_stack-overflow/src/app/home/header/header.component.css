@@ -1,0 +1,111 @@
+mat-toolbar {
+    height: 80px;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    font-size: 24px;
+    
+    background-color: #F4F4F5;
+  }
+ 
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .contact{
+    background: #0A95EF;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  a{
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+    margin-left: 30px;
+    font-weight: 200;
+    font-size: 20px;
+    
+}
+
+.fa-sort-desc{
+    margin-left: 5px;
+    margin-top: 4px;
+    color: blue;
+}
+ /* Burger menu styles */
+ .menu-toggle {
+  display: none;
+}
+
+.menu-toggle input {
+  display: none;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.menu-toggle span:last-child {
+  margin-bottom: 0;
+}
+
+.menu-toggle ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #F4F4F5;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.menu-toggle ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.menu-toggle ul li a {
+  display: block;
+  padding: 10px 30px;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .menu-toggle {
+      display: block;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+  }
+  #links{
+    display: none;
+  }
+  .contact{
+    display: none;
+  }
+
+  .example-spacer {
+      display: none;
+  }
+  .links{
+    display: none;
+  }
+
+}

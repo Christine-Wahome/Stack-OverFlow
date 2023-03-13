@@ -1,0 +1,244 @@
+
+
+mat-toolbar {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    
+    background-color: white;
+  }
+ .fa-bars{
+    background-color: white;
+    
+  }
+
+   .example-spacer {
+    flex: 1 1 auto;
+  }
+  .row{
+    
+    height: 70vh;
+   
+    width: 100%;
+    margin: auto; 
+  }
+   
+  .contact{
+    background: #0A95EF;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  a{
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+    margin-left: 30px;
+    font-weight: 200;
+    font-size: 20px;
+    
+}
+
+.fa-sort-desc{
+    margin-left: 5px;
+    margin-top: 4px;
+    color: blue;
+}
+
+
+#banner{
+   height: inherit;
+   margin-top: 20px;
+   
+   
+    
+}
+.banner-title{
+    color: #9199A1;
+}
+.banner-content{
+    width: 80%;
+}
+.banner2 {
+    font-size: 36px;
+}
+.banner-image{
+    width: 50%;
+}
+#bannerimg{
+    background-image: url('../../assets/images/stackphoto.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: inherit;
+}
+
+.awards{
+    
+    display: flex;
+    justify-content: center;
+    margin-left: 60%;
+}
+.products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin-top: 40px;
+    
+    gap: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    width: 100vw;
+}
+.line{
+    width: 20%;
+    
+    border-bottom: 2px solid grey;
+}
+.pro-text{
+    margin-top: 20px;
+}
+.product-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-left: 60%;
+    
+}
+
+/* styles for screens smaller than 768px (e.g. mobile devices) */
+@media only screen and (max-width: 767px) {
+    mat-toolbar {
+      height: 60px;
+      font-size: 20px;
+    }
+    
+    a {
+      margin-left: 20px;
+      font-size: 16px;
+    }
+    
+    .banner-content {
+      width: 100%;
+      margin-left: 10vw;
+    }
+    
+    #bannerimg {
+      display: none;
+    }
+    
+    #banner {
+      margin-top: 10px;
+    }
+    
+    .awards {
+      margin-left: 0;
+    }
+    
+    .products {
+      display: block;
+      margin-top: 20px;
+      gap: 10px;
+      height: auto;
+      text-align: center;
+    }
+    
+    .line {
+      width: 100%;
+      margin-left: -20px;
+    }
+    
+    .product-content {
+      margin-left: 10%;
+     
+    }
+    .pro-text{
+        margin-right: 20%;
+    }
+    .product-content> img{
+        margin-left: 20px;
+        /* width: 100vw; */
+
+    }
+  }
+  
+  /* styles for screens between 768px and 1024px */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    mat-toolbar {
+      font-size: 20px;
+    }
+    
+    a {
+      margin-left: 20px;
+      font-size: 16px;
+    }
+    
+    .banner-content {
+      width: 80%;
+    }
+    
+    .banner2 {
+      font-size: 28px;
+    }
+    
+    .awards {
+      margin-left: 50%;
+    }
+    
+    .products {
+      margin-top: 30px;
+      gap: 20px;
+      height: 70px;
+    }
+    
+    .line {
+      width: 15%;
+    }
+  }
+  
+  /* styles for screens larger than 1024px */
+  @media only screen and (min-width: 1024px) {
+    mat-toolbar {
+      font-size: 24px;
+    }
+    
+    a {
+      margin-left: 30px;
+      font-size: 20px;
+    }
+    
+    .banner-content {
+      width: 80%;
+    }
+    
+    .banner2 {
+      font-size: 36px;
+    }
+    
+    .awards {
+      margin-left: 60%;
+    }
+    
+    .products {
+      margin-top: 40px;
+      gap: 50px;
+      height: 50px;
+    }
+    
+    .line {
+      width: 20%;
+    }
+    
+    .product-content {
+      margin-left: 60%;
+    }
+  }
+  

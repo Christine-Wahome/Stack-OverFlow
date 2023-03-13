@@ -1,0 +1,44 @@
+.row{
+ height: 100vh;
+}
+/* .container-fluid{
+    margin-bottom: 10px;
+} */
+.text-danger{
+    color: red;
+    /* border-color: red; */
+}
+.content{
+    margin-top: 30px;
+    margin-left: 90px;
+   /* border: 2px solid red; */
+}
+.content1{
+    display: flex;
+    padding: 10px;
+    /* margin-bottom: 50px; */
+
+}
+p{
+    margin-left: 10px;
+}
+i{
+    color: #0A95EF;
+}
+
+button{
+    width: 320.48px;
+    height: 42.35px;
+    font-size: 20px;
+}
+#form-box{
+    margin-top: 30px;
+    margin-left: 0px;
+    /* border: 2px solid red; */
+}
+.form-group{
+    padding: 10px;
+}
+label{
+    font-size: 20px;
+}

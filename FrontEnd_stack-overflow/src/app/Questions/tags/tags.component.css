@@ -1,0 +1,36 @@
+
+#side-bar{
+    border-right: 2px solid #9199A1;
+    padding: 50px;
+    
+}
+.related >span> p{
+    background-color: #CEE5F5;
+    width: fit-content;
+}
+span{
+    display: flex;
+    
+}
+i{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.tags{
+    margin-top: 10px;
+    
+}
+.title > p{
+    width: 50vw;
+}
+.single-tag{
+    height: fit-content;
+    width: 250px;
+    padding: 10px;
+    margin-top: 40px;
+    background-color: #CEE5F5;
+
+}
+h4{
+    color: #0063BF;
+}

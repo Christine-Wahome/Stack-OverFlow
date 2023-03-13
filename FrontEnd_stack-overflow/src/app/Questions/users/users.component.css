@@ -1,0 +1,30 @@
+
+#side-bar{
+    border-right: 2px solid #9199A1;
+    padding: 50px;
+    
+}
+.related >span> p{
+    background-color: #CEE5F5;
+    width: fit-content;
+}
+span{
+    display: flex;
+    
+}
+i{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.users{
+    padding: 10px;
+}
+.profile{
+    display: flex;
+    gap: 10px;
+}
+img{
+    width: 131px;
+    height: 104px;
+    background: #CEE5F5; 
+}

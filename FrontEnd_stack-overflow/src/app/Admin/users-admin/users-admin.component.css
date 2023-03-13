@@ -1,0 +1,13 @@
+
+.users{
+    padding: 10px;
+}
+.profile{
+    display: flex;
+    gap: 10px;
+}
+img{
+    width: 131px;
+    height: 104px;
+    background: #CEE5F5; 
+}

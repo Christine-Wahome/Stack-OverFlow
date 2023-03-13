@@ -1,0 +1,88 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div  id="side-bar" style="background-color: white;height: 93vh;"> 
+             <h2>PUBLIC</h2>   
+             <div class="pages">
+                <p>Tags</p>
+                <p>Users</p>
+                <!-- <p>Companies</p> -->
+             </div>
+             <h2>Related Tags</h2>
+             <div class="related">
+                <span>
+                    <p>Javascript</p>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <h5>34000</h5>
+                </span>
+                <span>
+                    <p>Typescript</p>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <h5>34000</h5>
+                </span>
+                <span>
+                    <p>Python</p>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <h5>34000</h5>
+                </span>
+                <span>
+                    <p>C Sharp</p>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <h5>34000</h5>
+                </span>
+                
+             </div>
+             
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="content">
+                <p>Ask a public question</p>
+            </div>
+            <div class="guide">
+                <p style="color: rgb(86, 86, 199);font-size: 20px;">Guide</p>
+                <p>Writing a good Question/Title <br>
+                    
+                    You’re ready to ask a programming-related question and this form will help guide you through the process.<br>
+                    
+                     <b>Steps</b> <br>
+                    
+                     <i class="fa fa-circle" aria-hidden="true"></i> Summarize your problem in a one-line title.<br>
+                    
+                     <i class="fa fa-circle" aria-hidden="true"></i> Describe your problem in more detail.<br>
+                    
+                     <i class="fa fa-circle" aria-hidden="true"></i> Describe what you tried and what you expected to happen.<br>
+                    
+                     <i class="fa fa-circle" aria-hidden="true"></i> Add “tags” which help surface your question to members of the community.<br>
+                    
+                     <i class="fa fa-circle" aria-hidden="true"></i> Review your question and post it to the site.</p>
+            </div>
+           <!-- Title -->
+<div class="questions">
+    <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" placeholder="Title to your question...">
+      </mat-form-field>
+      <!-- Question -->
+      <mat-form-field class="example-full-width" id="question-desc">
+        <mat-label>Your Question description</mat-label>
+        <textarea matInput formControlName="description" placeholder="Your Question description..."></textarea>
+      </mat-form-field>
+      <!-- Tags -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Tags</mat-label>
+        <input matInput formControlName="tag" placeholder="Add a tag...">
+      </mat-form-field>
+      <button type="submit" mat-button class="btn btn-primary" class="contact">Add Question</button>
+    </form>
+  </div>
+  
+            <div class="space">
+                
+            </div>
+        </div>
+    </div>
+</div>

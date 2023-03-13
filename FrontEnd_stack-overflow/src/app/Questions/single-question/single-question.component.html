@@ -1,0 +1,114 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div  id="side-bar" style="background-color: white;height: 93vh;"> 
+             <h2>PUBLIC</h2>   
+             <div class="pages">
+                <p routerLink="/tags" routerLinkActive="active">Tags</p>
+                <p routerLink="/users" routerLinkActive="active">Users</p>
+                <!-- <p>Companies</p> -->
+             </div>
+             <h2>Related Tags</h2>
+             <div class="related">
+                <span>
+                    <p>Javascript</p>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <h5>34000</h5>
+                </span>
+                <span>
+                    <p>Typescript</p>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <h5>34000</h5>
+                </span>
+                <span>
+                    <p>Python</p>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <h5>34000</h5>
+                </span>
+                <span>
+                    <p>C Sharp</p>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <h5>34000</h5>
+                </span>
+                
+             </div>
+             
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="content-questions">
+                <div class="question1">
+                    <div class="votes">
+                        
+                        <p>0 answers</p>
+                        <p>2 views</p>
+                    </div>
+                    <div class="question1a"  *ngIf=" question as question">
+                        <p class="question-title" >{{question.title}}</p>
+                        <p>{{question.description}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="line">
+                
+            </div>
+
+            <div class="comments">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Comment</mat-label>
+                    </mat-form-field>
+                  
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Leave a comment</mat-label>
+                      <textarea matInput placeholder="Leave a comment..."></textarea>
+                    </mat-form-field>
+                    <button type="submit" mat-button class=" btn btn-primary" class="contact" >Add Comment</button>
+                  </form>
+                  
+            </div>
+            <!-- answered questions -->
+            <div class="answered">
+                <h2>1 answers</h2>
+                <div class="single-ans">
+                  <p>The text-align: center; only centers the element's inline contents, not the element itself.</p>
+                  
+                </div>
+                <div class="votes">
+                    
+                        <i (click)="upvote()" class="fa fa-thumbs-up" aria-hidden="true"></i>
+                   
+                    <p class="vote-count" appColor="blue">Votes: {{ votes }}</p>
+                </div>
+                <div class="line">
+                
+                </div>
+
+            </div>
+            <!-- answers -->
+            <div class="comments">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Comment</mat-label>
+                    </mat-form-field>
+                  
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Your Answer</mat-label>
+                      <textarea matInput placeholder="Your Answer..."></textarea>
+                    </mat-form-field>
+                    <button type="submit" mat-button class=" btn btn-primary" class="contact" >Add Answer</button>
+                  </form>
+                  
+            </div>
+
+        </div>
+        
+ 
+    </div>
+
+</div>
+
+
