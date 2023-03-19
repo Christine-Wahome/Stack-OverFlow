@@ -52,7 +52,7 @@ export interface Comment {
     tag: string
     date: Date
     user: string
-    comments: {[key: string]: Comment[]}
+    comments: {[key: string]: Comment[]}//remove
     answers: Answer[]
   }
   

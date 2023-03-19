@@ -5,6 +5,7 @@ const routes: Routes = [
   {path:'', loadComponent:()=>import('./home/home.component').then(c=>c.HomeComponent)},
   {path:'login', loadComponent:()=>import('./Auth/login/login.component').then(c=>c.LoginComponent)},
   {path:'signup', loadComponent:()=>import('./Auth/signup/signup.component').then(c=>c.SignupComponent)},
+  {path:'forgotpassword', loadComponent:()=>import('./Auth/forgot-password/forgot-password.component').then(c=>c.ForgotPasswordComponent)},
   {path:'allquiz', loadComponent:()=>import('./Questions/all-questions/all-questions.component').then(c=>c.AllQuestionsComponent)},
   {path:'onequiz/:id', loadComponent:()=>import('./Questions/single-question/single-question.component').then(c=>c.SingleQuestionComponent)},
   {path:'askquiz', loadComponent:()=>import('./Questions/ask-questions/ask-questions.component').then(c=>c.AskQuestionsComponent)},

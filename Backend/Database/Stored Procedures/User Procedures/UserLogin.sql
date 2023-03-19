@@ -1,0 +1,5 @@
+CREATE OR ALTER PROCEDURE SpLoginUser @Email VARCHAR(300)
+AS
+BEGIN
+ SELECT * FROM Users WHERE email =@Email
+END;

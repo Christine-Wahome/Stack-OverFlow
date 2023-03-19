@@ -1,0 +1,5 @@
+CREATE OR ALTER PROCEDURE SpAllQuestions
+AS
+BEGIN
+ SELECT * FROM QuestionsAsked
+END; 

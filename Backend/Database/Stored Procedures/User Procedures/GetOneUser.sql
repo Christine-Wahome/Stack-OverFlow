@@ -1,0 +1,5 @@
+CREATE PROCEDURE SpGetSpecificUser @Email VARCHAR(300)
+AS
+BEGIN
+ SELECT * FROM users WHERE email =@Email
+END;

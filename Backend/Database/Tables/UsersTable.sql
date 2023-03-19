@@ -1,0 +1,21 @@
+CREATE TABLE Users (
+    userId VARCHAR(100),
+displayName VARCHAR(200),
+email VARCHAR(300) UNIQUE,
+password VARCHAR(150) ,
+pictureUrl VARCHAR(300) DEFAULT 'null',
+isSent VARCHAR(150) DEFAULT '0',
+PRIMARY KEY (userId)
+
+)
+
+ALTER TABLE Users
+ADD  isAdmin  VARCHAR(150) DEFAULT '0'
+
+ALTER TABLE Users
+ADD  isForgotPassword  VARCHAR(150) DEFAULT '0'
+SELECT * FROM Users
+
+
+
+

@@ -1,0 +1,90 @@
+SignUp
+###
+POST http://localhost:4000/register/user
+Content-Type: application/json
+
+
+    {
+    
+    "displayName": "Walson Wart ",
+    "email": "wart519@gmail.com",
+    "password": "IILove2023@%^",
+    "pictureUrl": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F0a%2F53%2Fc3%2F0a53c3bbe2f56a1ddac34ea04a26be98.jpg&tbnid=mJpvnGPmGXOMkM&vet=12ahUKEwjj_u7rpOX9AhUcnCcCHQkhBgYQMygOegUIARDkAQ..i&imgrefurl=https%3A%2F%2Fwww.pinterest.com%2Fpin%2Fsoulful-creates-in-2022--839499186802259790%2F&docid=hYubYdzukrJRtM&w=640&h=640&q=profile%20photos&ved=2ahUKEwjj_u7rpOX9AhUcnCcCHQkhBgYQMygOegUIARDkAQ",
+    "isSent": "0",
+    "isAdmin":"1",
+    "isForgotPassword":"0"
+   
+  }
+   
+  
+    
+   
+  
+
+###
+POST http://localhost:4000/login  
+Content-Type: application/json
+
+{
+     "email": "jason@gmail.com",
+    "password": "ILove2023@%"
+  }
+
+
+###
+GET http://localhost:4000/getusers
+
+
+
+###
+GET http://localhost:4000/getoneuser/1cdb8a0c-9c14-4743-b127-11fec0c5cbe4
+
+
+
+###
+POST http://localhost:4000/post/to/stack/overflow/one/user/question/single
+Content-Type: application/json
+
+ {
+        "viewCount": "4",
+        "title": "How to create apps with flutter" ,
+        "description": "How to make a mobile app with Flutter",
+        "userId": "wkn348231sb" , 
+        "answerId": "d23sg",
+        "tagId":"3g214",
+        "tagName": "Flutter"
+  }
+
+Getting one Question
+###
+GET http://localhost:4000/post/onequestion/4b6e594b-e862-44b7-a6dd-911994c822e9
+
+Getting all questions
+###
+GET http://localhost:4000/post/question/allquestions
+
+Posting an Answer
+###  
+POST http://localhost:4000/onquestion/posts/user/answer
+Content-Type: application/json
+
+{
+  "content": "This solution is good" ,
+  "commentId": "92567", 
+  "userId":"wkn348231sb",
+  "voteId": "132",
+  "questionId":"4b6e594b-e862-44b7-a6dd-911994c822e9",
+  "text": "Python scripting",
+  "voteCount": "2",
+  "isPreferred": "1",
+  "isPreferredEmail": "0"
+}
+
+getting all ans to Question
+###
+GET http://localhost:4000/onquestion/answerToQuestion/4b6e594b-e862-44b7-a6dd-911994c822e9
+
+
+Deleting a question
+###
+POST http://localhost:4000/post/question/deletequestion/2c105f8e-64b5-4844-8c5e-b60a57636730

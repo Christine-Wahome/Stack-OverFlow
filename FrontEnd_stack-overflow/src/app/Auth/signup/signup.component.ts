@@ -6,11 +6,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { registerUser } from 'src/app/State/Actions/userActions';
+import { ColorDirective } from 'src/app/Directives/color.directive';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule,RouterModule,ReactiveFormsModule],
+  imports: [CommonModule,RouterModule,ReactiveFormsModule,ColorDirective],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
