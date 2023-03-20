@@ -4,7 +4,7 @@ import { verifyToken } from "../Middlewares/verifyToken";
 
 const questionpostRouter = Router()
 
-questionpostRouter.post('/one/user/question/single',questionPost)
+questionpostRouter.post('/one/user/question/single',verifyToken,questionPost)
 
 
 

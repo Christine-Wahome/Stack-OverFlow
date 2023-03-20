@@ -5,8 +5,8 @@ import { verifyToken } from "../Middlewares/verifyToken";
 
 const answerRouter = Router()
 
-answerRouter.post('/answer',answerPost)
+answerRouter.post('/answer',verifyToken,answerPost)
 
-answerRouter.get('/answerToQuestion/:questionId',getAnswersToQuestion)
+answerRouter.get('/answerToQuestion/:questionId',verifyToken,getAnswersToQuestion)
 
 export default answerRouter
