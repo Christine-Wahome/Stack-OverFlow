@@ -3,6 +3,6 @@ CREATE PROCEDURE spUpdateForgotPassword
 AS
 BEGIN
   UPDATE Users
-  SET isForgotPassword = 1
+  SET isForgotPassword = 0
   WHERE Email = @Email
 END

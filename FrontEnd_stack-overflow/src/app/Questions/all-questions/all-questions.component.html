@@ -62,8 +62,8 @@
                 
         </div>
 
-        <div class="content-questions">
-            <div *ngFor="let question of questions" class="question1"  [routerLink]="['/onequiz',question.id]">
+        <div *ngIf="questions" class="content-questions">
+            <div *ngFor="let question of questions.data" class="question1"  [routerLink]="['/onequiz',question.questionId]">
                 <div class="votes">
                     <p>0 answers</p>
                     <p>2 views</p>

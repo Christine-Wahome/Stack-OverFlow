@@ -32,10 +32,10 @@ export class SignupComponent implements OnInit{
     
     this.registerForm = this.formBuilder.group({
       
-      Name:['',[Validators.required,Validators.minLength(4)]],
+      displayName:['',[Validators.required,Validators.minLength(4)]],
       
-      Email:['',[Validators.required,Validators.email]],
-      Password:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')  ]],
+      email:['',[Validators.required,Validators.email]],
+      password:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')  ]],
       // conPassword:['',[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')  ], [this.confirmPass.bind(this)]],
       
       
@@ -50,7 +50,7 @@ export class SignupComponent implements OnInit{
      this.submitted = true
      
      this.store.dispatch(registerUser({userRegistered:  this.registerForm.value}))
-      console.log(this.registerForm.value);
+      // console.log(this.registerForm.value);
       
       this.router.navigate(['login'])
      // console.log(this.registerForm);

@@ -37,6 +37,7 @@ import { questionReducer } from './State/Reducers/questionReducer';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([UsersEffect, QuestionEffects]),
   ],
+  // providers:[],
   providers: [{provide:HTTP_INTERCEPTORS, useClass:TokenInterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })

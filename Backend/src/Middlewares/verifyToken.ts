@@ -6,6 +6,8 @@ import {  NextFunction, Request, Response } from 'express'
 dotenv.config({ path: path.resolve(__dirname, '../../.env')})
 
 
+
+
 export const verifyToken = (req:Request, res:Response, next:NextFunction) => {
     //getting the token
     const bearer = req.headers['authorization'] as string 

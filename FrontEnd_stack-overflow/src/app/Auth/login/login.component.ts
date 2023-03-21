@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit{
     
     this.loginForm = this.formBuilder.group({
       
-      Email:['',[Validators.required,Validators.email]],
-      Password:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')  ]],
+      email:['',[Validators.required,Validators.email]],
+      password:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')  ]],
       
       
       
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit{
     this.submitted = true;
     localStorage.clear()
     this.store.dispatch(loginUser({user:this.loginForm.value}))
-      this.router.navigate([''])
+      // this.router.navigate([''])
     
       this.store.select(theLoggedInUsers).subscribe(res => {
         if(res){

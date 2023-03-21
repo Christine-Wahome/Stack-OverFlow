@@ -4,7 +4,7 @@ import { v4 as uid } from 'uuid'
 import { sqlConfig } from '../Config'
 import { DatabaseHelper } from '../DatabaseHelper'
 import {quesionsSchema} from '../Helpers'
-import { QuestionPostType } from '../Models' 
+import { QuestionPostType,RequestType } from '../Models' 
 
 const helperDB = new DatabaseHelper()
 
@@ -17,8 +17,10 @@ interface ExtendedRequest extends Request{
         userId: string , 
         tagId: string,
         answerId: string,
-        isPreferred:string,
         tagName: string,
+        isPreferredEmail:string,
+        createdAtTime:string
+        user?:RequestType
          }
 }
 
@@ -28,8 +30,12 @@ export const questionPost = async (req: ExtendedRequest, res: Response) => {
     try {
       const questionId = uid()
     //   const tagId = uid()
-      const { title, description, viewCount, userId, answerId, tagName,tagId,isPreferred } = req.body
-      const { error } = quesionsSchema.validate({ title, description, viewCount, userId, answerId, tagName,tagId,isPreferred })
+
+    if(req.body.user){
+          console.log(req.body.user);
+
+      const { title, description, viewCount, answerId, tagName,tagId,isPreferredEmail,createdAtTime } = req.body
+      const { error } = quesionsSchema.validate({ title, description, viewCount, answerId, tagName,tagId })
       if (error) {
         return res.status(400).json(error.details[0].message)
       }
@@ -40,20 +46,22 @@ export const questionPost = async (req: ExtendedRequest, res: Response) => {
       await transaction.begin()
   
       try {
-        // const question: QuestionPostType[] = await (await (transaction.request()
-        //   .input('questionId', questionId)
-        //   .input('TagId', tagId)
-        //   .input('ViewCount', viewCount)
-        //   .input('Title', title)
-        //   .input('Description', description)
-        //   .input('UserId', userId)
-        //   .input('AnswerId', answerId)
-        //   .input('TagName', tagName)
-        //   .input('IsPreferred', isPreferred)
-        //   .execute("spPostQuestionsAndTag"))).recordset
+        const question = await (await (transaction.request()
+          .input('questionId', questionId)
+          .input('TagId', tagId)
+          .input('ViewCount', viewCount)
+          .input('Title', title)
+          .input('Description', description)
+          .input('UserId', req.body.user.userId)
+          .input('AnswerId', answerId)
+          .input('TagName', tagName)
+          .input('IsPreferredEmail', isPreferredEmail)
+          .input('CreatedAtTime', createdAtTime)
+
+          .execute("spPostQuestionsAndTag"))).recordset
   
-        // await transaction.commit()
-        // console.log(question);
+        await transaction.commit()
+        console.log(question);
         
   
         res.status(200).json({ message: 'Question Successfully Posted' })
@@ -62,12 +70,17 @@ export const questionPost = async (req: ExtendedRequest, res: Response) => {
         throw error
       }
   
-    } catch (error: any) {
-      res.status(500).json(error.message)
-    }
+    } 
+  
+  }
+  catch (error: any) {
+    res.status(500).json(error.message)
   }
 
 
+          
+    
+}    
 export const getAllQuestions = async (req:Request, res:Response) => {
     try {
       const page = req.query.page ? parseInt(req.query.page.toString()) : 1

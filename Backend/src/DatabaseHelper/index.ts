@@ -2,7 +2,6 @@
 import mssql from 'mssql'
 import { sqlConfig } from '../Config'
 
-
 export class DatabaseHelper {
 private pool :Promise<mssql.ConnectionPool>
     constructor(){

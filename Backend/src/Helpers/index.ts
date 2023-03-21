@@ -30,13 +30,9 @@ export const quesionsSchema = Joi.object({
     }),
     description:Joi.string().required(),
     viewCount:Joi.string().required(),
-    userId:Joi.string().required(),
     tagId:Joi.string().required(),
     answerId:Joi.string().required(),
-    tagName: Joi.string().required(),
-    isPreferred: Joi.string().required()
-    
-    
+    tagName: Joi.string().required()
 })
 
 export const answersSchema = Joi.object({
@@ -48,5 +44,6 @@ export const answersSchema = Joi.object({
     text:Joi.string().required(),
     voteCount:Joi.string().required(), 
     isPreferred:Joi.string().required(),
-    isPreferredEmail:Joi.string().required()
+    isPreferredEmail:Joi.string().required(),
+    voteType:Joi.string()
 })

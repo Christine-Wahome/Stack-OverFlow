@@ -6,13 +6,13 @@ Content-Type: application/json
 
     {
     
-    "displayName": "Walson Wart ",
-    "email": "wart519@gmail.com",
+    "displayName": "Jonathan Ndambuki ",
+    "email": "jonathanndambuki16@gmail.com",
     "password": "IILove2023@%^",
     "pictureUrl": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F0a%2F53%2Fc3%2F0a53c3bbe2f56a1ddac34ea04a26be98.jpg&tbnid=mJpvnGPmGXOMkM&vet=12ahUKEwjj_u7rpOX9AhUcnCcCHQkhBgYQMygOegUIARDkAQ..i&imgrefurl=https%3A%2F%2Fwww.pinterest.com%2Fpin%2Fsoulful-creates-in-2022--839499186802259790%2F&docid=hYubYdzukrJRtM&w=640&h=640&q=profile%20photos&ved=2ahUKEwjj_u7rpOX9AhUcnCcCHQkhBgYQMygOegUIARDkAQ",
     "isSent": "0",
-    "isAdmin":"1",
-    "isForgotPassword":"0"
+    "isAdmin":"0",
+    "isForgotPassword":"1"
    
   }
    
@@ -26,8 +26,8 @@ POST http://localhost:4000/login
 Content-Type: application/json
 
 {
-     "email": "jason@gmail.com",
-    "password": "ILove2023@%"
+     "email": "jonathanndambuki16@gmail.com",
+    "password": "IILove2023@%^"
   }
 
 
@@ -52,12 +52,13 @@ Content-Type: application/json
         "userId": "wkn348231sb" , 
         "answerId": "d23sg",
         "tagId":"3g214",
-        "tagName": "Flutter"
+        "tagName": "Flutter",
+        "isPreferred": "0"
   }
 
 Getting one Question
 ###
-GET http://localhost:4000/post/onequestion/4b6e594b-e862-44b7-a6dd-911994c822e9
+GET http://localhost:4000/post/question/onequestion/user/4b6e594b-e862-44b7-a6dd-911994c822e9
 
 Getting all questions
 ###
@@ -82,9 +83,9 @@ Content-Type: application/json
 
 getting all ans to Question
 ###
-GET http://localhost:4000/onquestion/answerToQuestion/4b6e594b-e862-44b7-a6dd-911994c822e9
+GET http://localhost:4000/onquestion/posts/user/answerToQuestion/4b6e594b-e862-44b7-a6dd-911994c822e9
 
 
 Deleting a question
 ###
-POST http://localhost:4000/post/question/deletequestion/2c105f8e-64b5-4844-8c5e-b60a57636730
+DELETE http://localhost:4000/post/question/deletequestion/2c105f8e-64b5-4844-8c5e-b60a57636730

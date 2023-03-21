@@ -38,16 +38,16 @@
         </div>
 
         <div class="col-md-9">
-            <div class="content-questions">
-                <div class="question1">
+            <div *ngIf="question"  class="content-questions">
+                <div *ngFor="let squestion of question.data" class="question1">
                     <div class="votes">
                         
                         <p>0 answers</p>
                         <p>2 views</p>
                     </div>
-                    <div class="question1a"  *ngIf=" question as question">
-                        <p class="question-title" >{{question.title}}</p>
-                        <p>{{question.description}}</p>
+                    <div class="question1a"  >
+                        <p class="question-title" >{{squestion.title}}</p>
+                        <p>{{squestion.description}}</p>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,10 @@
 import { createAction, props } from '@ngrx/store'
-import { Answer, Question } from 'src/app/Interfaces'
+import { Answer, Question,QuestionData } from 'src/app/Interfaces'
 
 
 export const loadQuestions = createAction('[Questions] Load Questions')
 
-export const loadQuestionsSuccess = createAction('[Questions] Load Questions Success',props<{ questions: Question[] }>())
+export const loadQuestionsSuccess = createAction('[Questions] Load Questions Success',props<{ questionsLoad: QuestionData }>())
 
 export const loadQuestionsFailure = createAction('[Questions] Load Questions Failure',props<{ error: string }>())
 
@@ -16,7 +16,7 @@ export const createQuestionSuccess = createAction('[Questions] Create Question S
 
 export const createQuestionFailure = createAction('[Questions] Create Question Failure',props<{ error: string }>())
 
-export const getQuestionById = createAction('[Question] Get Question By Id',props<{ id: string }>());
+export const getQuestionById = createAction('[Question] Get Question By Id',props<{ questionid: string }>());
 
 
 

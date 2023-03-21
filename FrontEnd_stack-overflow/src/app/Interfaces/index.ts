@@ -6,9 +6,9 @@
 //     password: string
 // }
 export interface User{
-    Name:string
-    Email:string
-    Password:string
+    displayName:string
+    email:string
+    password:string
 }
 
 export interface Login{
@@ -22,11 +22,9 @@ export interface Message{
 
 export interface LoginUser{
     
-    Email:string
+    email:string
     password:string
-    users:{token?: string;
-         role?: string;
-         name?: string; }
+
     
 
 }
@@ -46,14 +44,23 @@ export interface Comment {
   }
 
   export interface Question {
-    id: string
+    
+    questionId?:string
     title: string
     description: string
-    tag: string
-    date: Date
-    user: string
-    comments: {[key: string]: Comment[]}//remove
-    answers: Answer[]
+    tagId: string
+    tagName:string
+    createdAtTime: Date
+    answerId?:string
+    viewCount?:string
+  }
+  
+  export interface QuestionData {
+    totalCount: number;
+    currentPage: number;
+    pageSize: string;
+    totalPages: number;
+    data: Question[];
   }
   
   export interface Answer {

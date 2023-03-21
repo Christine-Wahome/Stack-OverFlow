@@ -8,7 +8,7 @@ const authRouter = Router()
 authRouter.post('/register/user',registerUser)
 authRouter.post('/login',login )
 
-authRouter.post('/deleteuser/:userId',verifyToken,deleteAUser )
+authRouter.delete('/deleteuser/:userId',verifyToken,deleteAUser )
 
 authRouter.get('/getusers',verifyToken,getAllUsers )
 authRouter.get('/getoneuser/:userId',verifyToken,getOneUser )

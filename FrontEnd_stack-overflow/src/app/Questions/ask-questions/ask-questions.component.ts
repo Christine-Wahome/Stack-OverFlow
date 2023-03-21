@@ -24,21 +24,21 @@ export class AskQuestionsComponent implements OnInit{
     this.questionForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      tag: ['']
+      tagName: ['',Validators.required]
     });
   }
 
   onSubmit() {
-    const { title, description, tag } = this.questionForm.value;
+    const { title, description, tagName } = this.questionForm.value;
+    // tagId= Math.floor(Math.random() * 1000000)
   const question: Question = {
-    id: 'Math.floor(Math.random() * 1000000)', 
+     
     title,
     description,
-    tag,
-    date: new Date(),
-    user: '', 
-    comments: {},
-    answers: []
+    tagId: 'Math.floor(Math.random() * 1000000)',
+    tagName,
+    createdAtTime: new Date()
+    
   }
   console.log(question);
   

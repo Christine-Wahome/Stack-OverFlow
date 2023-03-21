@@ -83,6 +83,9 @@ export const login = async (req:ExtendedRequest, res:Response) => {
             const{password,...rest} = property
             return rest
         })
+
+        console.log(payload[0]);
+        
         const token = jwt.sign(payload[0], process.env.SECRETKEY as string, {expiresIn:'3600000s'})
         console.log(token);
         

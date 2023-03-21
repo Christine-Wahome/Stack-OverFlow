@@ -6,7 +6,7 @@ BEGIN
 
   SELECT *
   FROM Users
-  WHERE isForgotPassword = '0' AND email = @Email
+  WHERE isForgotPassword = '1' AND email = @Email
 END;
 
 

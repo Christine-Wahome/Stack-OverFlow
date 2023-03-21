@@ -5,9 +5,10 @@ import authRouter from "./Router/authRoute"
 import questionRouter from "./Router/questionsRoute"
 import bodyParser from "body-parser"
 import questionpostRouter from "./Router/postQuestionRoute"
-
+import cors from 'cors'
 const app = express()
 
+app.use(cors())
 //registering some middlewares
 // app.use(json()) //adds a body to the request
 app.use (bodyParser.urlencoded({extended:true}))

@@ -7,8 +7,8 @@ CREATE OR ALTER PROCEDURE spPostQuestionsAndTag
     @UserId VARCHAR(100),
     @TagId VARCHAR(100),
     @AnswerId VARCHAR(100),
-    @TagName VARCHAR(200),
-    @isPreferredEmail VARCHAR(100)
+    @TagName VARCHAR(200)
+   
    
 )
 AS
@@ -22,8 +22,7 @@ BEGIN
             @ViewCount,
             @Title,
             @Description,
-            @UserId,
-            @IsPreferredEmail;
+            @UserId;
            
             
          EXEC spPostTag 

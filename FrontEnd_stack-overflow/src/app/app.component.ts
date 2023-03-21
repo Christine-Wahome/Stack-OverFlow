@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
   title = 'stack-overflow';
 
   ngOnInit():void {
-    this.store.dispatch(loadQuestions ())
+    this.store.dispatch(loadQuestions())
 
   }
 

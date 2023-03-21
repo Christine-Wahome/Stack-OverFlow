@@ -1,69 +1,50 @@
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Question,Comment, Answer } from '../Interfaces';
+import { Question,Comment, Answer, QuestionData } from '../Interfaces';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionsService {
-  private questions: Question[] = [
-    {
-    id: "1",
-    title: "What is Angular?",
-    description: "A javascript framework",
-    tag: "javascript",
-    date: new Date(),
-    user: "Alice",
-    comments: {},
-    answers: [
-    { id: "1", text: "Angular is a framework for building web applications", date: new Date(), user: "Bob", votes: 0 }
-    ]
-    },
-    {
-    id: "2",
-    title: "What is Angular?",
-    description: "A javascript framework",
-    tag: "javascript",
-    date: new Date(),
-    user: "Bob",
-    comments: {},
-    answers: []
-    }
-    ];
+  private questions !: Question[] 
     
     
     
-    constructor() { }
+    constructor(private http:HttpClient) { }
     
-    getQuestions(): Observable<Question[]> {
-    return new Observable(observer => {
+    getQuestions(): Observable<QuestionData> {
+    // return new Observable(observer => {
 
-      observer.next(this.questions)
-    });
+    //   observer.next(this.questions)
+    // });
+    return this.http.get<QuestionData>('http://localhost:4000/post/question/allquestions')
+    
+    
     }
     
 
     addQuestion(question: Question): Observable<Question> {
     
-      return new Observable(observer => {
-        const newQuestion: Question = {
-            ...question,
+      // return new Observable(observer => {
+      //   const newQuestion: Question = {
+      //       ...question,
             
-          };
-          this.questions.push(newQuestion);
-          console.log(this.questions);
-        observer.next(newQuestion)
-      });
+      //     };
+      //     this.questions.push(newQuestion);
+      //     console.log(this.questions);
+      //   observer.next(newQuestion)
+      // });
+
+      return this.http.post<Question>('http://localhost:4000/post/to/stack/overflow/one/user/question/single',question)
     }
     
     
-    getQuestionById(id: string): Observable<Question | undefined> {
-     return new Observable(observer => {
-       const question = this.questions.find(question => question.id === id);
-       observer.next(question)
-     });
-
+    getQuestionById(questionId: string): Observable<QuestionData> {
+    
+    return this.http.post<QuestionData>('http://localhost:4000/post/question/onequestion/user/${questionId}',questionId)
+     
     }
 
     // this.getQuestionById(questionId).subscribe(question => {
@@ -75,23 +56,23 @@ export class QuestionsService {
   //     question.comments[key].push(comment);
   //   }
     
-  addCommentToQuestion(questionId: string, comment: Comment): Observable<Question> {
-    return new Observable(observer => {
-      this.getQuestionById(questionId).subscribe(question => {
-        if (question) {
-          const key = comment.user.toLowerCase();
-          if (!question.comments[key]) {
-            question.comments[key] = [];
-          }
-          question.comments[key].push(comment);
-          observer.next(question);
-        }
-        observer.complete();
-      }, error => {
-        observer.error(error);
-      });
-    });
-  }
+  // addCommentToQuestion(questionId: string, comment: Comment): Observable<Question> {
+  //   return new Observable(observer => {
+  //     this.getQuestionById(questionId).subscribe(question => {
+  //       if (question) {
+  //         const key = comment.user.toLowerCase();
+  //         if (!question.comments[key]) {
+  //           question.comments[key] = [];
+  //         }
+  //         question.comments[key].push(comment);
+  //         observer.next(question);
+  //       }
+  //       observer.complete();
+  //     }, error => {
+  //       observer.error(error);
+  //     });
+  //   });
+  // }
   
     
 //   getCommentsForQuestion(questionId: string): Observable<{ [key: string]: Comment[] } | undefined> {

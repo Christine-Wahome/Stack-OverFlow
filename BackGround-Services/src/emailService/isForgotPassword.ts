@@ -46,11 +46,11 @@ const sendIsForgotPasswordEmail = async () => {
             .input('UserId',user.userId)
             .execute(`spUpdateForgotPassword`)
 
-             setTimeout(async () => {
-                await pool.request()
-                  .input("UserId", user.userId)
-                  .execute(`spResetForgotPassword`);
-              }, 900000); // 15 minutes
+            //  setTimeout(async () => {
+            //     await pool.request()
+            //       .input("UserId", user.userId)
+            //       .execute(`spResetForgotPassword`);
+            //   }, 900000); // 15 minutes
           
           } catch (error:any) {
             console.log(error.message);

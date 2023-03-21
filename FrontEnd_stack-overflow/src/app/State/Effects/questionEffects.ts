@@ -18,8 +18,8 @@ export class QuestionEffects {
     ofType(QuestionActions.loadQuestions),
     mergeMap(() =>{
       return this.questionsService.getQuestions().pipe(
-        map((questions) =>
-          QuestionActions.loadQuestionsSuccess({ questions })
+        map((questionsLoad) =>
+          QuestionActions.loadQuestionsSuccess({ questionsLoad })
         ),
         catchError((error) =>
           of(QuestionActions.loadQuestionsFailure({ error }))

@@ -7,7 +7,7 @@ const questionRouter = Router()
 
 // questionRouter.post('/one/user/question/single',questionPost)
 
-questionRouter.post('/deletequestion/:questionId',verifyToken,deleteAQuestion)
+questionRouter.delete('/deletequestion/:questionId',verifyToken,deleteAQuestion)
 
 questionRouter.get('/onequestion/user/:questionId',verifyToken,getOneQuestion)
 questionRouter.get('/allquestions',verifyToken,getAllQuestions)

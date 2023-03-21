@@ -10,11 +10,14 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
+  
   registerUser(user:User):Observable<Message>{
-    return this.http.post<Message>('http://localhost:4000/auth/register',user)
+    console.log("user",user);
+    
+    return this.http.post<Message>('http://localhost:4000/register/user',user)
   }
 
   loginUser(user:LoginUser):Observable<LoginSuccess>{
-    return this.http.post<LoginSuccess>('http://localhost:4000/auth/login',user)
+    return this.http.post<LoginSuccess>('http://localhost:4000/login',user)
   }
 }

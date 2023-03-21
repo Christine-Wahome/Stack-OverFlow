@@ -16,8 +16,8 @@ export class QuestionPostType{
         public tagId: string,
         public answerId: string,
         public tagName:string,
-        public isPreferred:string
-        
+        public isPreferredEmail:string,
+        public createdAtTime:string
     ){ }
 }
 export class AnswerPostType{
@@ -32,7 +32,20 @@ export class AnswerPostType{
        public text:string,
        public voteCount:string,
        public isPreferred:string,
-       public isPreferredEmail:string
+       public isPreferredEmail:string,
+       public voteType:boolean
 
     ){ }
+}
+
+export interface RequestType{
+         userId:string,
+         displayName:string,
+         email:string,
+         pictureUrl:string,
+         isSent:string,
+         isAdmin:string,
+         isForgotPassword:string,
+         iat:number,
+         exp:number
 }

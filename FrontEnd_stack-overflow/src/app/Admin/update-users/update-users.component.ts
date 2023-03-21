@@ -25,32 +25,31 @@ export class UpdateUsersComponent implements OnInit{
   constructor(private store : Store<{user:LoginUser}>,private fb : FormBuilder,private router:Router){}
     
     ngOnInit(): void {
-      this.updateUserForm = this.fb.group({
-        name: new FormControl('',[Validators.required]),
-        role : new FormControl('',[Validators.required]),
-      })
+    //   this.updateUserForm = this.fb.group({
+    //     name: new FormControl('',[Validators.required]),
+    //     role : new FormControl('',[Validators.required]),
+    //   })
   
-      this.store.select(loginUser).subscribe(res=>{
-        console.log(res);
+    //   this.store.select(loginUser).subscribe(res=>{
+    //     console.log(res);
         
-        this.user=res.user
+    //     this.user=res.user
         
   
-        this.updateUserForm.patchValue({
-          name: this.user.users.name,
-          role: this.user.users.role
+    //     this.updateUserForm.patchValue({
           
-        })
+          
+    //     })
         
-      })
-    }
+    //   })
+    // }
   
-    onSubmit(){
+    // onSubmit(){
     
-      this.store.dispatch(updateUser({Name:this.updateUserForm.value.name,role:this.updateUserForm.value.role}))
-      this.router.navigate(['users-admin'])
+    //   this.store.dispatch(updateUser({Name:this.updateUserForm.value.name,role:this.updateUserForm.value.role}))
+    //   this.router.navigate(['users-admin'])
   
-    }
+    // }
   }
- 
+}
 

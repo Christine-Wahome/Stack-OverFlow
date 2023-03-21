@@ -19,7 +19,8 @@ interface ExtendedRequest extends Request{
         text:string,
         voteCount:string,
         isPreferred:string,
-        isPreferredEmail:string 
+        isPreferredEmail:string,
+        voteType:boolean 
          }
 }
 
@@ -27,7 +28,7 @@ export const answerPost = async (req: ExtendedRequest, res: Response) => {
     try {
       const answerId = uid()
     //   const tagId = uid()
-      const { content, userId, commentId,voteId ,questionId,text, voteCount,isPreferred,isPreferredEmail} = req.body
+      const { content, userId, commentId,voteId ,questionId,text, voteCount,isPreferred,isPreferredEmail,voteType} = req.body
       const { error } = answersSchema.validate({ content, userId, commentId,voteId ,questionId,text, voteCount,isPreferred,isPreferredEmail })
       if (error) {
         return res.status(400).json(error.details[0].message)
@@ -50,6 +51,8 @@ export const answerPost = async (req: ExtendedRequest, res: Response) => {
           .input('VoteCount', voteCount)
           .input('IsPreferred', isPreferred)
           .input('IsPreferredEmail', isPreferredEmail)
+          .input('VoteType', voteType)
+
           .execute("spPostAnswersAndCommentsWithVotes"))).recordset
   
         await transaction.commit()
