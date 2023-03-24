@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from './State/appState';
 // import * as QuestionsActions from './State/Actions/question.action'
 import { loadQuestions } from './State/Actions/question.action';
+import { getUser } from './State/Actions/userActions';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit():void {
     this.store.dispatch(loadQuestions())
+    // this.store.dispatch(getUser());
 
   }
 

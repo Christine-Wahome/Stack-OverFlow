@@ -17,3 +17,10 @@ th {
     background-color: #4FD1D9;
     color: white;
 }
+.fa-trash{
+    background-color: transparent;
+    color: rgb(202, 130, 130);
+}
+.fa-trash:hover{
+    color: red;
+}

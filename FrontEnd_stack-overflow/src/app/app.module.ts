@@ -17,6 +17,9 @@ import { isDevMode } from '@angular/core';
 import { TokenInterceptorService } from './Services/token-interceptor.service';
 import { QuestionEffects } from './State/Effects/questionEffects';
 import { questionReducer } from './State/Reducers/questionReducer';
+import { AnswerEffects } from './State/Effects/answerEffects';
+import { CommentEffects } from './State/Effects/commentEffect';
+import { answerReducer } from './State/Reducers/answerReducer';
 
 
 @NgModule({
@@ -33,12 +36,12 @@ import { questionReducer } from './State/Reducers/questionReducer';
     FooterComponent,
     HeaderComponent,
     HttpClientModule,
-    StoreModule.forRoot({ user:userReducer, questions:questionReducer}),
+    StoreModule.forRoot({ user:userReducer, questions:questionReducer, answers:answerReducer}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([UsersEffect, QuestionEffects]),
+    EffectsModule.forRoot([UsersEffect, QuestionEffects,AnswerEffects,CommentEffects]),
   ],
-  // providers:[],
-  providers: [{provide:HTTP_INTERCEPTORS, useClass:TokenInterceptorService, multi:true}],
+  //providers:[],
+   providers: [{provide:HTTP_INTERCEPTORS, useClass:TokenInterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

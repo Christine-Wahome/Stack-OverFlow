@@ -28,19 +28,38 @@ export interface LoginUser{
     
 
 }
+export interface RegisteredUser{
+    
+    userId:string
+    displayName?: string
+   
+    email:string
+    password:string
+    pictureUrl?:string
+    isSent:string
+    isAdmin:string
+    isForgotPassword:string
+}
 
 export interface LoginSuccess{
     message:string
+    displayName:string
+    isAdmin:string
     token:string
-    role:string
-    name:string
+    
 }
 
+export interface UpdateUserPayload {
+    displayName: string;
+    isAdmin: string;
+  }
+
 export interface Comment {
-    id: string
-    text: string
-    date: Date
-    user: string
+    commentId: string
+    content: string
+    questionId?:string
+    text?:string
+    
   }
 
   export interface Question {
@@ -64,11 +83,16 @@ export interface Comment {
   }
   
   export interface Answer {
-    id: string
+    answerId?: string
+    questionId:string
     text: string
-    date: Date
-    user: string
-    votes: number
+    voteId?:string
+    voteCount?: string
+    isPreferred?:string
+    voteType?:boolean
+    content?:string
+    commentId?:string
+    displayName?:string
   }
   
   

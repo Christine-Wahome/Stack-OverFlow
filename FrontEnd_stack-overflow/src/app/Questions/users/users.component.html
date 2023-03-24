@@ -38,19 +38,27 @@
         </div>
 
         <div class="col-md-9">
-            <div class="users">
-                <h1>Users</h1>
-                <div class="profile">
-                    <img src="" alt="">
-                    <div class="desc">
-                        <h2 style="color: #4FD1D9;">Eureka</h2>
-                        <p>500</p>
-                        <p style="color: #4FD1D9;">Python,Javascript</p>
-                    </div>
-                </div>
-            </div>
             
-        </div>
+                <div class="row">
+                  <h1>Users</h1>
+                  <div class="users">
+                    <div class="profile" *ngFor="let user of users | slice: pageIndex * pageSize : (pageIndex + 1) * pageSize">
+                      <img [src]="user.pictureUrl" alt="">
+                      <div class="desc" [routerLink]="['/userUpdate']">
+                        <h2 style="color: #4FD1D9;">Name: {{ user.displayName }}</h2>
+                       
+                        <p>500</p>
+                            <p style="color: #4FD1D9;">Python,Javascript</p>
+                      </div>
+                    </div>
+                  </div>
+                  <mat-paginator [length]="users.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50]" (page)="onPageChanged($event)"></mat-paginator>
+                </div>
+              </div>
+              
+        
+            
+       
 
     </div>
 </div>

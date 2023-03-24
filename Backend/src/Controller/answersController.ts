@@ -4,7 +4,7 @@ import { v4 as uid } from 'uuid'
 import { sqlConfig } from '../Config'
 import { DatabaseHelper } from '../DatabaseHelper'
 import { answersSchema } from '../Helpers'
-import { AnswerPostType } from '../Models'
+import { AnswerPostType, RequestType } from '../Models'
 
 const helperDB = new DatabaseHelper()
 
@@ -20,7 +20,8 @@ interface ExtendedRequest extends Request{
         voteCount:string,
         isPreferred:string,
         isPreferredEmail:string,
-        voteType:boolean 
+        voteType:boolean,
+        user?:RequestType 
          }
 }
 
@@ -28,8 +29,11 @@ export const answerPost = async (req: ExtendedRequest, res: Response) => {
     try {
       const answerId = uid()
     //   const tagId = uid()
-      const { content, userId, commentId,voteId ,questionId,text, voteCount,isPreferred,isPreferredEmail,voteType} = req.body
-      const { error } = answersSchema.validate({ content, userId, commentId,voteId ,questionId,text, voteCount,isPreferred,isPreferredEmail })
+      console.log(req.body);
+      
+    if(req.body.user){
+      const { content, commentId,voteId ,questionId,text, voteCount,isPreferred,isPreferredEmail,voteType} = req.body
+      const { error } = answersSchema.validate({  questionId,text })
       if (error) {
         return res.status(400).json(error.details[0].message)
       }
@@ -43,7 +47,7 @@ export const answerPost = async (req: ExtendedRequest, res: Response) => {
         const question: AnswerPostType[] = await (await (transaction.request()
           .input('answerId', answerId)
           .input('Content', content)
-          .input('UserId', userId)
+          .input('UserId', req.body.user.userId)
           .input('CommentId', commentId)
           .input('VoteId', voteId)
           .input('QuestionId', questionId)
@@ -64,6 +68,9 @@ export const answerPost = async (req: ExtendedRequest, res: Response) => {
         await transaction.rollback()
         throw error
       }
+
+    }
+      
   
     } catch (error: any) {
       res.status(500).json(error.message)

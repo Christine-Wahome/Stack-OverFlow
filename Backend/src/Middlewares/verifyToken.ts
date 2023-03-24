@@ -18,7 +18,7 @@ export const verifyToken = (req:Request, res:Response, next:NextFunction) => {
                 
     try {
         if(!token){
-            res.status(401).json({error:'Forbbiden'})
+           return  res.status(401).json({error:'Forbbiden'})
         }
         
         
@@ -27,7 +27,7 @@ export const verifyToken = (req:Request, res:Response, next:NextFunction) => {
         req.body.user=decodedData
         
     } catch (error:any) {
-        res.status(401).json(error)
+       return  res.status(401).json("forbbiden")
     }
     next()
 }

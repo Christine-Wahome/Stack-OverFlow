@@ -50,7 +50,7 @@
             <div class="content-title2">
                 <button mat-button class=" btn btn-primary" class="contact" routerLink="/askquiz" >Ask a Question</button>
                  <div class="categories">
-                    <button>Newest</button>
+                    <button (click)="sortNewest()">Newest</button>
                     <button>Unanswered</button>
                  </div>
             </div>
@@ -62,21 +62,39 @@
                 
         </div>
 
-        <div *ngIf="questions" class="content-questions">
-            <div *ngFor="let question of questions.data" class="question1"  [routerLink]="['/onequiz',question.questionId]">
-                <div class="votes">
-                    <p>0 answers</p>
-                    <p>2 views</p>
-                </div>
-                <div class="question1a">
-                    <p class="question-title">{{ question.title }}</p>
-                    <p  appColor="rgb(138, 138, 202)">{{question.description}}</p>
-                </div>
+        <div  *ngIf="questions && questions.data" class="content-questions">
+            <div *ngFor="let question of questions.data" class="question1" [routerLink]="['/onequiz', question.questionId]">
+
+
+              <div class="votes">
+                <p>0 answers</p>
+                <p>2 views</p>
+              </div>
+              <div class="question1a">
+                <p class="question-title">{{ question.title }}</p>
+                <p appColor="rgb(138, 138, 202)">{{ question.description }}</p>
+              </div>
             </div>
-        </div>
+            <!-- <div *ngFor="let question of questions.data.slice((currentPage - 1) * pageSize, currentPage * pageSize)" class="question1" [routerLink]="['/onequiz', question.questionId]"></div> -->
+            <!-- <div class="pagination">
+              <button [disabled]="currentPage === 1" (click)="goToPage(1)">First</button>
+              <button [disabled]="currentPage === 1" (click)="goToPage(currentPage - 1)">Prev</button>
+            
+              <ng-container *ngFor="let page of getPages()">
+                <button [disabled]="currentPage === page" (click)="goToPage(page)">{{ page }}</button>
+              </ng-container>
+            
+              <button [disabled]="currentPage === totalPages" (click)="goToPage(currentPage + 1)">Next</button>
+              <button [disabled]="currentPage === totalPages" (click)="goToPage(totalPages!)">Last</button>
+            </div>
+          </div> -->
+          
+        
         <div class="line">
+            
                 
         </div>
-    </div>
+        
+          
     </div>
 </div>

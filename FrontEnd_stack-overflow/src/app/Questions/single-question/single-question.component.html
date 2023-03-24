@@ -55,58 +55,61 @@
             <div class="line">
                 
             </div>
-
-            <div class="comments">
-                <form class="example-form">
+            
+            <!-- answered questions -->
+            <div *ngIf="answers"  class="answered">
+                <h2>1 answers</h2>
+                <div *ngFor="let answer of answers;let i=index" class="single-ans">
+                  <p>{{answer.text}}</p>
+                  <p>{{answer.displayName}}</p>
+                  <i class="fa fa-check" aria-hidden="true"><p>mark as preferred</p></i>
+                </div>
+                <div class="votes">
+                    <i (click)="upvote()" class="fa fa-thumbs-up" aria-hidden="true"></i>
+                    <p class="vote-count" appColor="blue">Votes: {{ votes }}</p>
+                    <i (click)="downvote()" class="fa fa-thumbs-down" aria-hidden="true"></i>
+                    
+                  </div>
+                  
+                 
+                <div class="comments">
+                <form [formGroup]="answerForm" (ngSubmit)="addAnswer()" class="example-form">
                     <mat-form-field class="example-full-width">
                       <mat-label>Comment</mat-label>
                     </mat-form-field>
                   
                     <mat-form-field class="example-full-width">
                       <mat-label>Leave a comment</mat-label>
-                      <textarea matInput placeholder="Leave a comment..."></textarea>
+                      <textarea formControlName="content" matInput placeholder="Leave a comment..."></textarea>
                     </mat-form-field>
-                    <button type="submit" mat-button class=" btn btn-primary" class="contact" >Add Comment</button>
+                    <button type="submit"  class=" comment-btn" class="contact" >Add Comment</button>
                   </form>
                   
             </div>
-            <!-- answered questions -->
-            <div class="answered">
-                <h2>1 answers</h2>
-                <div class="single-ans">
-                  <p>The text-align: center; only centers the element's inline contents, not the element itself.</p>
-                  
-                </div>
-                <div class="votes">
-                    
-                        <i (click)="upvote()" class="fa fa-thumbs-up" aria-hidden="true"></i>
-                   
-                    <p class="vote-count" appColor="blue">Votes: {{ votes }}</p>
-                </div>
                 <div class="line">
                 
                 </div>
 
             </div>
-            <!-- answers -->
+          
             <div class="comments">
-                <form class="example-form">
+                <form [formGroup]="answerForm" (ngSubmit)="addAnswer()" class="example-form">
                     <mat-form-field class="example-full-width">
                       <mat-label>Comment</mat-label>
                     </mat-form-field>
                   
                     <mat-form-field class="example-full-width">
                       <mat-label>Your Answer</mat-label>
-                      <textarea matInput placeholder="Your Answer..."></textarea>
+                      <textarea matInput formControlName="text"  placeholder="Your Answer..."></textarea>
                     </mat-form-field>
                     <button type="submit" mat-button class=" btn btn-primary" class="contact" >Add Answer</button>
                   </form>
                   
-            </div>
+            </div> 
 
         </div>
-        
- 
+         
+
     </div>
 
 </div>

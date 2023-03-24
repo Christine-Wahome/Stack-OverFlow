@@ -98,5 +98,16 @@ i{
     
    
   }
+  .fa-check{
+    background-color: transparent;
+    color: greenyellow;
+  }
+  .fa-check>p {
+    font-size: 9px;
+    color: #69b7ef;
+  }
+  .fa-check>p :hover{
+    color: #41a5ec;
+  }
   
   

@@ -1,5 +1,5 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
-import { LoginSuccess, User } from "src/app/Interfaces";
+import { LoginSuccess, RegisteredUser, User } from "src/app/Interfaces";
 import * as userActions from "../Actions/userActions";
 
 export interface UserInterface {
@@ -9,6 +9,10 @@ export interface UserInterface {
     loginSuccess:LoginSuccess | null
     error:string,
     loginFail:string
+    getUsers:RegisteredUser | null
+    usersRegistered:RegisteredUser[]
+   
+    
 }
 
 const initialState: UserInterface= {
@@ -17,7 +21,10 @@ const initialState: UserInterface= {
     users:null,
     loginSuccess:null,
     error:'',
-    loginFail:''
+    loginFail:'',
+    getUsers:null,
+    usersRegistered: [],
+    
 
 }
 
@@ -31,7 +38,21 @@ export const loginFailure = createSelector(UserSliceState, state=> state.loginFa
 
 export const theLoggedInUsers= createSelector(UserSliceState, state=>state.users)
 
+export const theRegisteredUsers= createSelector(UserSliceState, state=>state.usersRegistered)
+
 export const userProfile= createSelector(UserSliceState, state=>state.loginSuccess)
+
+export const updateUser= createSelector(UserSliceState, state=>state.loginSuccess)
+
+export const allUsers = createSelector(UserSliceState, state => state.getUsers)
+
+export const updateUserSelector = createSelector(
+    UserSliceState,
+    state => ({
+      displayName: state.loginSuccess?.displayName || '',
+      isAdmin: state.loginSuccess?.isAdmin || '',
+    })
+  );
 
 
 
@@ -62,18 +83,39 @@ export const userReducer = createReducer<UserInterface>  (
             error:action.error
         }
     }),
-    on(userActions.updateUser, (state, action): UserInterface => {
-        const updatedUser = state.loginSuccess
-          ? {
-              ...state.loginSuccess,
-              name: action.Name,
-              role: action.role,
-            }
-          : null;
-    
+    on(userActions.getUserSuccess, (state, action) => {
         return {
           ...state,
-          loginSuccess: updatedUser,
+          usersRegistered:action.users
         };
-      })
+      }),
+      on(userActions.getUserFailure, (state, action) => {
+        return {
+          ...state,
+          error: action.error,
+        };
+      }),
+      on(userActions.deleteUser, (state, { id }) => {
+        const updatedUsers = state.usersRegistered.filter(
+          (user) => user.userId !== id
+        );
+        return {
+          ...state,
+          usersRegistered: updatedUsers,
+        };
+      }),
+    // on(userActions.updateUser, (state, action): UserInterface => {
+    //     const updatedUser = state.loginSuccess
+    //       ? {
+    //           ...state.loginSuccess,
+    //           displayName: action.displayName,
+    //           isAdmin: action.isAdmin,
+    //         }
+    //       : null;
+    
+    //     return {
+    //       ...state,
+    //       loginSuccess: updatedUser,
+    //     };
+    //   })
 )

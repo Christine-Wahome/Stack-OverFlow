@@ -5,17 +5,17 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Tags</th>
 				<th>Question title</th>
-				<th>user</th>
+				<th>Description</th>
+				<th>Delete Question</th>
 			</tr>
 		</thead>
-		<tbody>
-			<tr >
-				<td>JavaScript</td>
+		<tbody *ngIf="questions">
+			<tr *ngFor="let question of questions.data">
+				<td>{{question.title}}</td>
 				
-				<td>Whats javascript</td>
-				<td>Eureka </td>
+				<td>{{question.description}}</td>
+				<td><i (click)="deleteQuestionById(question?.questionId!)" class="fa fa-trash" aria-hidden="true"></i> </td>
 			</tr>
 			
 		</tbody>

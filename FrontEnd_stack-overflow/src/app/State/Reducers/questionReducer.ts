@@ -23,17 +23,7 @@ export const getQuestionSuccess = createSelector (QuestionsSliceState, state => 
 export const createQuestionSuccess = createSelector (QuestionsSliceState, state => state.questions )
 const singleQuestionId = createSelector(QuestionsSliceState, state=>state.questionId)
 
-// export const getQuestionByIdSuccess = createSelector(
-//   getQuestionSuccess,
-//   singleQuestionId,
-//   (state, questionId) => {
-//     if (state) {
-//       const question = state.data.find((x) => x.questionId === questionId);
-//     return question ? question : undefined;
-//     }
-//     return null;
-//   }
-// );
+
 export const getQuestionByIdSuccess = createSelector(
   getQuestionSuccess,
   singleQuestionId,
@@ -54,6 +44,15 @@ export const getQuestionByIdSuccess = createSelector(
     }
     return null;
   }
+);
+
+export const deleteQuestionByIdSuccess = createSelector(
+  QuestionsSliceState,
+  singleQuestionId,
+  (state, questionId) => ({
+    ...state,
+    questions: state.questions.filter((q) => q.questionId !== questionId),
+  })
 );
 
 
@@ -81,6 +80,8 @@ export const questionReducer = createReducer(
     ...state,
     questions: state.questions.filter((q) => q.questionId !== id),
   })),
+  // on(QuestionActions.deleteQuestionSuccess, (state, { id }) => deleteQuestionByIdSuccess(state, id)),
+
   on(QuestionActions.getQuestionById, (state, actions) => ({
     ...state,
     questionId:actions.questionid,

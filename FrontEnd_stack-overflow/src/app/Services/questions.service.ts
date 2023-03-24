@@ -8,35 +8,18 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class QuestionsService {
-  private questions !: Question[] 
-    
-    
-    
+
     constructor(private http:HttpClient) { }
     
     getQuestions(): Observable<QuestionData> {
-    // return new Observable(observer => {
 
-    //   observer.next(this.questions)
-    // });
     return this.http.get<QuestionData>('http://localhost:4000/post/question/allquestions')
-    
     
     }
     
 
     addQuestion(question: Question): Observable<Question> {
     
-      // return new Observable(observer => {
-      //   const newQuestion: Question = {
-      //       ...question,
-            
-      //     };
-      //     this.questions.push(newQuestion);
-      //     console.log(this.questions);
-      //   observer.next(newQuestion)
-      // });
-
       return this.http.post<Question>('http://localhost:4000/post/to/stack/overflow/one/user/question/single',question)
     }
     
@@ -47,32 +30,34 @@ export class QuestionsService {
      
     }
 
-    // this.getQuestionById(questionId).subscribe(question => {
-  //   if (question) {
-  //     const key = comment.user.toLowerCase();
-  //     if (!question.comments[key]) {
-  //       question.comments[key] = [];
-  //     }
-  //     question.comments[key].push(comment);
-  //   }
+
+    addAnswerToQuestion( answer: Answer): Observable<Answer> {
+      const endpoint = 'http://localhost:4000/onquestion/posts/user/answer';
+      console.log("We get to the Service");
+      
+      return this.http.post<Answer>(endpoint, answer)
+    }
+
     
-  // addCommentToQuestion(questionId: string, comment: Comment): Observable<Question> {
-  //   return new Observable(observer => {
-  //     this.getQuestionById(questionId).subscribe(question => {
-  //       if (question) {
-  //         const key = comment.user.toLowerCase();
-  //         if (!question.comments[key]) {
-  //           question.comments[key] = [];
-  //         }
-  //         question.comments[key].push(comment);
-  //         observer.next(question);
-  //       }
-  //       observer.complete();
-  //     }, error => {
-  //       observer.error(error);
-  //     });
-  //   });
-  // }
+    
+  addCommentToAnswer( comment: Comment): Observable<Comment> {
+    const endpoint = 'http://localhost:4000/onquestion/posts/user/answer';
+      console.log("We get to the Service");
+      
+      return this.http.post<Comment>(endpoint, comment)
+  }
+
+  getAnswersToQuestion(questionId: string): Observable<Answer[]> {
+    
+    return this.http.get<Answer[]>(`http://localhost:4000/onquestion/posts/user/answerToQuestion/${questionId}`)
+     
+    }
+
+
+    deleteQuestion(questionId: string): Observable<Question> {
+      return this.http.delete<Question>(`http://localhost:4000/post/question/deletequestion/${questionId}`)
+
+    }
   
     
 //   getCommentsForQuestion(questionId: string): Observable<{ [key: string]: Comment[] } | undefined> {
@@ -87,13 +72,7 @@ export class QuestionsService {
 // }
   
     
-// addAnswerToQuestion(questionId: string, answer: Answer): void {
-//   this.getQuestionById(questionId).subscribe(question => {
-//     if (question) {
-//       question.answers.push(answer);
-//     }
-//   });
-// }
+
 
     
 // upvoteAnswer(questionId: string, answerId: string): void {

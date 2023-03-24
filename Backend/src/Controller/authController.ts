@@ -91,17 +91,19 @@ export const login = async (req:ExtendedRequest, res:Response) => {
         
         return res.status(200).json({ message:'user logged in', token})
     } catch (error:any) {
-        res.status(500).json(error.message)
+       return res.status(500).json(error.message)
     }
 }
 
 export const getAllUsers = async (req:Request, res:Response) => {
     try {
         const registeredUsers = await(await helperDB.exec('SpGetUsers')).recordset
-        res.status(200).json(registeredUsers)
+        console.log(registeredUsers);
+        
+      return  res.status(200).json(registeredUsers)
         
     } catch (error:any) {
-        res.status(500).json(error.message)
+        return res.status(500).json(error.message)
         
     }
 
@@ -111,9 +113,9 @@ export const getOneUser = async (req:Request, res:Response) => {
     const oneUser = req.params.userId
     try {
       const theUser = await (await helperDB.exec('SpGetSpecificUser', {UserId :oneUser})).recordset
-      res.status(200).json(theUser)
+      return res.status(200).json(theUser)
     } catch (error:any) {
-      res.status(500).json(error.message)
+      return res.status(500).json(error.message)
     }
 }    
 
@@ -122,8 +124,8 @@ export const deleteAUser = async (req:Request, res:Response) => {
     const oneUser = req.params.userId
     try {
       const theUser = await (await helperDB.exec('spDeleteUserById', {UserId :oneUser})).recordset
-      res.status(200).json({message: 'User Successfully Deleted'})
+      return res.status(200).json({message: 'User Successfully Deleted'})
     } catch (error:any) {
-      res.status(500).json(error.message)
+      return res.status(500).json(error.message)
     }
 }    

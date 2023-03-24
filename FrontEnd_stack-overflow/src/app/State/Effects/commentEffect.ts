@@ -9,26 +9,14 @@ import { addComment, addCommentFailure, addCommentSuccess } from '../Actions/com
 export class CommentEffects {
   constructor(private actions$: Actions, private commentService: QuestionsService) {}
 
-//   addComment$ = createEffect(() =>{
-//     return this.actions$.pipe(
-//       ofType(addComment),
-//       mergeMap((action) =>{
-//         return this.commentService.addCommentToQuestion(action.comment).pipe(
-//           map((comment) => addCommentSuccess({ comment:comment })),
-//           catchError((error) => of(addCommentFailure({ error })))
-//         )
-//       }
-//       )
-//     )
-//     }
-//   );
+
 addComment$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(addComment),
       mergeMap((action) => {
-        const { questionId, comment } = action.payload;
-        return this.commentService.addCommentToQuestion(questionId, comment).pipe(
-          map((question) => addCommentSuccess({ comment: question.comments })),
+        
+        return this.commentService.addCommentToAnswer( action.comment).pipe(
+          map((commentPosted) => addCommentSuccess({ comment: commentPosted })),
           catchError((error) => of(addCommentFailure({ error })))
         )
       })

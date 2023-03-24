@@ -14,8 +14,11 @@ const routes: Routes = [
   {path:'profile', loadComponent:()=>import('./profile/profile.component').then(c=>c.ProfileComponent)},
   {path:'admin', loadComponent:()=>import('./Admin/dashboard/dashboard.component').then(c=>c.DashboardComponent),
     children: [
-      {path:'users-admin', loadComponent:()=>import('./Admin/users-admin/users-admin.component').then(c=>c.UsersAdminComponent)},
-      {path:'userUpdate', loadComponent:()=>import('./Admin/update-users/update-users.component').then(c=>c.UpdateUsersComponent)},
+      {path:'users-admin', loadComponent:()=>import('./Admin/users-admin/users-admin.component').then(c=>c.UsersAdminComponent),
+         children: [
+          {path:'userUpdate', loadComponent:()=>import('./Admin/update-users/update-users.component').then(c=>c.UpdateUsersComponent)},
+         ]},
+      
       {path:'posts', loadComponent:()=>import('./Admin/posts/posts.component').then(c=>c.PostsComponent)},
 
     ]},

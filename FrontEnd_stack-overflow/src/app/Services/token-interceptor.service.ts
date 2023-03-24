@@ -10,7 +10,7 @@ export class TokenInterceptorService implements HttpInterceptor {
 
   intercept(req:HttpRequest<any> , next:HttpHandler){
     if(req.url!=='http://localhost:4000/login'){
-      const token = localStorage.getItem('token') as string
+      const token = localStorage.getItem('token')  ?localStorage.getItem('token') :'nothing' as string
     let modifiedReq= req.clone({headers:new HttpHeaders().append('authorization', `Bearer ${token}`).append('Custom', 'Just see Me')})
     return next.handle(modifiedReq)
     }

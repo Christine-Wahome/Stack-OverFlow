@@ -44,6 +44,14 @@ export const addAnswerFailure = createAction('[Questions] Add Answer Failure',pr
 
 
 
+export const loadAnswers = createAction('[Answer] Load Answers',props<{questionId: string }>())
+
+export const loadAnswersSuccess = createAction('[Answer] Load Answers Success',props<{ answers: Answer[]}>() )
+  
+export const loadAnswersFailure = createAction('[Questions] Load Questions Failure',props<{ error: string }>())
+
+
+
 export const voteAnswer = createAction('[Questions] Vote Answer',props<{ answerId: string, vote: number }>())
 
 export const voteAnswerSuccess = createAction('[Questions] Vote Answer Success',props<{ answerId: number, vote: number }>())

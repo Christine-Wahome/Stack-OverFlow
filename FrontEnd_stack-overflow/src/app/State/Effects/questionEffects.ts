@@ -49,6 +49,23 @@ createQuestion$ = createEffect(() =>{
 }
 );
 
+deleteQuestion$ = createEffect(() =>{
+  return this.actions$.pipe(
+    ofType(QuestionActions.deleteQuestion),
+    mergeMap(({ id }) =>{
+    return this.questionsService.deleteQuestion(id).pipe(
+        map(() => QuestionActions.deleteQuestionSuccess({ id })),
+        catchError((error) =>
+          of(QuestionActions.deleteQuestionFailure({ error }))
+        )
+      )
+    }
+    )
+  )
+}
+);
+      
+
 // updateQuestion$ = createEffect(() =>
 //   this.actions$.pipe(
 //     ofType(QuestionActions.updateQuestion),
@@ -65,19 +82,7 @@ createQuestion$ = createEffect(() =>{
 //   )
 // );
 
-// deleteQuestion$ = createEffect(() =>
-//   this.actions$.pipe(
-//     ofType(QuestionActions.deleteQuestion),
-//     mergeMap(({ id }) =>
-//       this.questionsService.deleteQuestion(id).pipe(
-//         map(() => QuestionActions.deleteQuestionSuccess({ id })),
-//         catchError((error) =>
-//           of(QuestionActions.deleteQuestionFailure({ error }))
-//         )
-//       )
-//     )
-//   )
-// );
+
 
 
 

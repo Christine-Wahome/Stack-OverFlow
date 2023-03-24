@@ -36,14 +36,13 @@ export const quesionsSchema = Joi.object({
 })
 
 export const answersSchema = Joi.object({
-    content:Joi.string().required(),
-    userId:Joi.string().required() ,
-    commentId:Joi.string().required(),
-    voteId:Joi.string().required() ,
+    content:Joi.string(),
+    commentId:Joi.string(),
+    voteId:Joi.string() ,
     questionId: Joi.string().required(),
     text:Joi.string().required(),
-    voteCount:Joi.string().required(), 
-    isPreferred:Joi.string().required(),
-    isPreferredEmail:Joi.string().required(),
+    voteCount:Joi.string(), 
+    isPreferred:Joi.string(),
+    isPreferredEmail:Joi.string(),
     voteType:Joi.string()
 })

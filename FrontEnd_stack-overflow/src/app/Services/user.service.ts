@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User, Message, LoginUser, LoginSuccess } from '../Interfaces';
+import { User, Message, LoginUser, LoginSuccess, RegisteredUser } from '../Interfaces';
 import { HttpClient } from '@angular/common/http';
 import{Observable} from 'rxjs'
 
@@ -19,5 +19,14 @@ export class UserService {
 
   loginUser(user:LoginUser):Observable<LoginSuccess>{
     return this.http.post<LoginSuccess>('http://localhost:4000/login',user)
+  }
+
+  getUsers():Observable<RegisteredUser[]>{
+   return this.http.get<RegisteredUser[]>('http://localhost:4000/getusers')
+  }
+
+  deleteUsers(userId: string): Observable<RegisteredUser> {
+    return this.http.delete<RegisteredUser>(`http://localhost:4000/deleteuser/${userId}`)
+
   }
 }

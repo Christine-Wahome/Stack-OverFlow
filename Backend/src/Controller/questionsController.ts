@@ -84,7 +84,7 @@ export const questionPost = async (req: ExtendedRequest, res: Response) => {
 export const getAllQuestions = async (req:Request, res:Response) => {
     try {
       const page = req.query.page ? parseInt(req.query.page.toString()) : 1
-      const sizeOfPage = (req.query.sizeOfPage ? parseInt(req.query.sizeOfPage.toString()) : 10)
+      const sizeOfPage = (req.query.sizeOfPage ? parseInt(req.query.sizeOfPage.toString()) :6)
       
       
       const skip = ((page - 1) * sizeOfPage).toString()

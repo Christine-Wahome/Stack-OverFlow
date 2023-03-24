@@ -86,6 +86,11 @@ mat-toolbar {
   color: black;
   text-decoration: none;
 }
+.fa-user{
+  font-size: 30px;
+  margin-right: 10px;
+  color: #6bb8eb;
+}
 
 @media (max-width: 767px) {
   .menu-toggle {

@@ -17,6 +17,8 @@ import { Question } from 'src/app/Interfaces';
 })
 export class AskQuestionsComponent implements OnInit{
   questionForm!:FormGroup
+  tagofId!:string
+  date!:Date
   // question!: Question
   constructor(private fb:FormBuilder, private router:Router, private store:Store<AppState>){ }
 
@@ -30,13 +32,18 @@ export class AskQuestionsComponent implements OnInit{
 
   onSubmit() {
     const { title, description, tagName } = this.questionForm.value;
-    // tagId= Math.floor(Math.random() * 1000000)
+    this.tagofId = Math.floor(Math.random() * 1000000).toString();
+    this.date = new Date()
+    console.log(this.date);
+    
   const question: Question = {
      
     title,
     description,
-    tagId: 'Math.floor(Math.random() * 1000000)',
+    tagId: this.tagofId,
     tagName,
+    viewCount: 'null',
+    answerId:"null",
     createdAtTime: new Date()
     
   }
